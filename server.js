@@ -25,7 +25,13 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
-
+app.get('/api/whoami', async (req, res) => {
+  console.log(req.headers)
+  const ipaddress = await (req.socket.address().address)
+  res.json({
+    ipaddress: ipaddress
+  })
+})
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
