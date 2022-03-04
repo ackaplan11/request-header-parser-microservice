@@ -26,11 +26,11 @@ app.get("/api/hello", function (req, res) {
 });
 
 app.get('/api/whoami', async (req, res) => {
-  console.log(req.headers)
   const ipaddress = await (req.socket.address().address)
   res.json({
     ipaddress: ipaddress,
-    language: req.headers['accept-language']
+    language: req.headers['accept-language'],
+    software: req.headers['user-agent']
   })
 })
 
