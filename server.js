@@ -29,7 +29,8 @@ app.get('/api/whoami', async (req, res) => {
   console.log(req.headers)
   const ipaddress = await (req.socket.address().address)
   res.json({
-    ipaddress: ipaddress
+    ipaddress: ipaddress,
+    language: req.headers['accept-language']
   })
 })
 
